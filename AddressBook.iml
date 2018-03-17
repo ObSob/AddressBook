@@ -20,13 +20,14 @@
         <fileset id="fileset" name="Dispatcher Servlet" removed="false">
           <dependency>web dispatcher servlet context</dependency>
           <file>file://$MODULE_DIR$/src/main/resources/dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring-hibernate.xml</file>
         </fileset>
       </configuration>
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="24a2a1a9-d356-4106-bc91-d684d70160d2" />
+          <unit-entry name="sessionFactory" value="24a2a1a9-d356-4106-bc91-d684d70160d2" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />

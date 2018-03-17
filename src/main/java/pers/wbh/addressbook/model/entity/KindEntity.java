@@ -1,9 +1,9 @@
-package pers.wbh.addressbook.pojo;
+package pers.wbh.addressbook.model.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "kind", schema = "adressbook", catalog = "")
+@Table(name = "kind", schema = "addressbook")
 public class KindEntity {
     private int kindId;
     private String kindName;
@@ -46,5 +46,12 @@ public class KindEntity {
         int result = kindId;
         result = 31 * result + (kindName != null ? kindName.hashCode() : 0);
         return result;
+    }
+
+    public KindEntity(){};
+
+    public KindEntity(int kindId, String kindName){
+        this.kindId = kindId;
+        this.kindName = kindName;
     }
 }

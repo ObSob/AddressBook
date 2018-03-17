@@ -1,10 +1,10 @@
-package pers.wbh.addressbook.pojo;
+package pers.wbh.addressbook.model.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "person", schema = "adressbook", catalog = "")
+@Table(name = "person", schema = "addressbook")
 public class PersonEntity {
     private int personId;
     private String personName;

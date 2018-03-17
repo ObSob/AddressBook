@@ -8,7 +8,7 @@
     <!--启用spring的一些annotation -->
     <context:annotation-config/>
     <!-- 自动扫描装配 -->
-    <context:component-scan base-package="pers.wbh.addressbook.service;"/>
+    <context:component-scan base-package="pers.wbh.addressbook.controller;"/>
 
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
     <mvc:annotation-driven/>
