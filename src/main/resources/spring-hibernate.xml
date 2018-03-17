@@ -8,14 +8,33 @@
     <context:property-placeholder location="classpath*:db.properties"/>
 
     <!--配置数据源-->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="${jdbc.driver}"/>
-        <property name="jdbcUrl" value="${jdbc.url}"/>
-        <property name="user" value="${jdbc.name}"/>
-        <property name="password" value="${jdbc.password}"/>
-        <property name="maxPoolSize" value="20"/>
-        <property name="minPoolSize" value="1"/>
-        <property name="maxIdleTime" value="20"/>
+    <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.name}" />
+        <property name="password" value="${jdbc.password}" />
+
+        <property name="initialSize" value="0" />
+        <property name="maxActive" value="20" />
+        <property name="minIdle" value="0" />
+        <property name="maxWait" value="60000" />
+
+        <!--
+        <property name="poolPreparedStatements" value="true" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="33" />
+        -->
+
+        <property name="validationQuery" value="${validationQuery}" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+        <property name="testWhileIdle" value="true" />
+
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <property name="minEvictableIdleTimeMillis" value="25200000" />
+
+        <property name="removeAbandoned" value="true" />
+        <property name="removeAbandonedTimeout" value="1800" />
+        <property name="logAbandoned" value="true" />
+
     </bean>
 
     <!--配置hibernate 的 SessionFactory-->
@@ -24,6 +43,7 @@
         <property name="packagesToScan" value="pers.wbh.addressbook.model.entity"/>
         <property name="hibernateProperties">
             <props>
+                <prop key="hibernate.connection.driver_class">${jdbc.driver}</prop>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>

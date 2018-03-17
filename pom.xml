@@ -97,11 +97,6 @@
       <artifactId>hibernate-core</artifactId>
       <version>5.2.13.Final</version>
     </dependency>
-    <dependency>
-      <groupId>org.ehcache</groupId>
-      <artifactId>ehcache</artifactId>
-      <version>3.0.2</version>
-    </dependency>
     <!--j2ee-->
     <dependency>
       <groupId>javax.xml.bind</groupId>
@@ -123,10 +118,11 @@
       <artifactId>activation</artifactId>
       <version>1.1.1</version>
     </dependency>
+    <!--  druid 数据库连接池 -->
     <dependency>
-      <groupId>c3p0</groupId>
-      <artifactId>c3p0</artifactId>
-      <version>0.9.1.2</version>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.31</version>
     </dependency>
   </dependencies>
   <build>

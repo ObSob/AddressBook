@@ -48,7 +48,7 @@ public class KindEntity {
         return result;
     }
 
-    public KindEntity(){};
+    public KindEntity(){}
 
     public KindEntity(int kindId, String kindName){
         this.kindId = kindId;
