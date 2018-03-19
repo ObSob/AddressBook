@@ -33,7 +33,7 @@ public class PersonEntity {
         this.personName = personName;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "personBirthday", nullable = true)
     public Date getPersonBirthday() {
         return personBirthday;

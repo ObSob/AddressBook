@@ -13,7 +13,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     @Autowired
     private SessionFactory sessionFactory;
 
-    private Session getCurrentSessionFactory() {
+    public Session getCurrentSessionFactory() {
         return sessionFactory.getCurrentSession();
     }
 
@@ -29,4 +29,5 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     public void update(T entity) {
         this.getCurrentSessionFactory().update(entity);
     }
+
 }
