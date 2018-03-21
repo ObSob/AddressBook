@@ -14,9 +14,11 @@
 <body>
     <ul>
         <c:forEach items="${users}" var="user">
-            <ul>${user.personName}</ul>
-            <ul>${user.personBirthday}</ul>
+            <ol>${user.personName}</ol>
+            <ol>${user.personBirthday}</ol>
+
         </c:forEach>
     </ul>
+
 </body>
 </html>
