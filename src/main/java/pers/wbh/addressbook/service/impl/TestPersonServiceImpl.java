@@ -3,6 +3,7 @@ package pers.wbh.addressbook.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.wbh.addressbook.dao.PersonDao;
+import pers.wbh.addressbook.model.entity.KindEntity;
 import pers.wbh.addressbook.model.entity.PersonEntity;
 import pers.wbh.addressbook.service.TestPersonService;
 
@@ -15,7 +16,7 @@ public class TestPersonServiceImpl implements TestPersonService {
 
     public void savePerson() {
         PersonEntity personEntity = new PersonEntity();
-        personEntity.setKindId(1);
+        personEntity.setKind(new KindEntity(1, "test"));
         personEntity.setPersonBirthday(new Date(System.currentTimeMillis()));
         personEntity.setPersonId(1);
         personEntity.setPersonInfo("test");

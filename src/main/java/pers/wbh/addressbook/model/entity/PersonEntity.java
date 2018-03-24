@@ -9,7 +9,7 @@ public class PersonEntity {
     private int personId;
     private String personName;
     private Date personBirthday;
-    private Integer kindId;
+    private KindEntity kind;
     private String personTelephone;
     private String personInfo;
 
@@ -43,14 +43,13 @@ public class PersonEntity {
         this.personBirthday = personBirthday;
     }
 
-    @Basic
-    @Column(name = "kindId", nullable = true)
-    public Integer getKindId() {
-        return kindId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    public KindEntity getKind() {
+        return kind;
     }
 
-    public void setKindId(Integer kindId) {
-        this.kindId = kindId;
+    public void setKind(KindEntity kind) {
+        this.kind = kind;
     }
 
     @Basic
@@ -73,5 +72,4 @@ public class PersonEntity {
     public void setPersonInfo(String personInfo) {
         this.personInfo = personInfo;
     }
-
 }

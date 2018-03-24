@@ -1,12 +1,14 @@
 package pers.wbh.addressbook.model.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "kind", schema = "addressbook")
 public class KindEntity {
     private int kindId;
     private String kindName;
+    private Set<PersonEntity> persons;
 
     @Id
     @Column(name = "kindId", nullable = false)
@@ -26,6 +28,15 @@ public class KindEntity {
 
     public void setKindName(String kindName) {
         this.kindName = kindName;
+    }
+
+    @OneToMany(mappedBy = "kind", cascade = CascadeType.ALL)
+    public Set<PersonEntity> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(Set<PersonEntity> persons) {
+        this.persons = persons;
     }
 
     @Override
@@ -54,4 +65,5 @@ public class KindEntity {
         this.kindId = kindId;
         this.kindName = kindName;
     }
+
 }

@@ -7,3 +7,8 @@
 --%>
 <%@page contentType="text/html; charset=UTF-8"%>
 
+<div class="container">
+    <p class="text-center">
+        Copy Right &copy; 王宝华
+    </p>
+</div>

@@ -15,24 +15,16 @@
 </head>
 <body>
     <%-- 导航条 --%>
-    <div id="header">
-        <t:insertAttribute name="header"/>
-    </div>
+    <t:insertAttribute name="header"/>
 
     <%-- 左菜单 --%>
-    <div>
-        <t:insertAttribute name="menu"/>
-    </div>
+    <t:insertAttribute name="menu"/>
 
     <%-- 正文 --%>
-    <div>
-        <t:insertAttribute name="body"/>
-    </div>
+    <t:insertAttribute name="body"/>
 
     <%-- 页脚 --%>
-    <div>
-        <t:insertAttribute name="footer"/>
-    </div>
+    <t:insertAttribute name="footer"/>
 
 
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

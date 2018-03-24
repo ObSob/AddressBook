@@ -1,4 +1,4 @@
-package pers.wbh.addressbook.model.pojo;
+package pers.wbh.addressbook.model.form;
 
 public class Kind {
     private int kindId;

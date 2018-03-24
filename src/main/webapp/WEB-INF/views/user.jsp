@@ -1,26 +1,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: 王宝华
-  Date: 2018/3/18
-  Time: 17:39
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>user</title>
-</head>
-<body>
-    <ul>
-        <c:forEach items="${users}" var="user">
-            <ol>${user.personName}</ol>
-            <ol>${user.personBirthday}</ol>
+<%@ page contentType="text/html;charset=UTF-8"%>
 
-        </c:forEach>
-    </ul>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>User List</h1>
+    </div>
+</div>
 
-
-
-</body>
-</html>
+<div class="container">
+    <c:forEach var="kind" items="${kinds}">
+        <table class="table table-striped">
+            <caption>Kind: ${kind.kindName}</caption>
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Info</th>
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+            <c:forEach var="user" items="${users}">
+                <c:if test="${user.kind.kindId == kind.kindId}">
+                    <tr>
+                        <th scope="row">${user.personId}</th>
+                        <td>${user.personName}</td>
+                        <td>${user.personTelephone}</td>
+                        <td>${user.personInfo}</td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:forEach>
+</div>
