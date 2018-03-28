@@ -6,7 +6,7 @@ import java.util.Date;
 @Entity
 @Table(name = "person", schema = "addressbook")
 public class PersonEntity {
-    private int personId;
+    private Integer personId;
     private String personName;
     private Date personBirthday;
     private KindEntity kind;
@@ -15,11 +15,12 @@ public class PersonEntity {
 
     @Id
     @Column(name = "personId", nullable = false, insertable = false)
-    public int getPersonId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     // 这个很烦， 记得要设置， 说明在下边
+    public Integer getPersonId() {
         return personId;
     }
 
-    public void setPersonId(int personId) {
+    public void setPersonId(Integer personId) {
         this.personId = personId;
     }
 
@@ -34,7 +35,7 @@ public class PersonEntity {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "personBirthday", nullable = true)
+    @Column(name = "personBirthday", insertable = false)
     public Date getPersonBirthday() {
         return personBirthday;
     }
@@ -53,7 +54,7 @@ public class PersonEntity {
     }
 
     @Basic
-    @Column(name = "personTelephone", nullable = true, length = 50)
+    @Column(name = "personTelephone", length = 50, insertable = false)
     public String getPersonTelephone() {
         return personTelephone;
     }
@@ -62,9 +63,8 @@ public class PersonEntity {
         this.personTelephone = personTelephone;
     }
 
-
     @Basic
-    @Column(name = "personInfo", nullable = true, length = 300)
+    @Column(name = "personInfo", insertable = false, length = 300)
     public String getPersonInfo() {
         return personInfo;
     }
@@ -72,4 +72,26 @@ public class PersonEntity {
     public void setPersonInfo(String personInfo) {
         this.personInfo = personInfo;
     }
+
+    public PersonEntity(){}
+
+//    public PersonEntity(Person person)
+//    {
+//        KindService kindService = new KindServiceImpl();
+//
+//        this.kind = kindService.getKindById(person.getKind());
+//        this.personBirthday = person.getPersonBirthday();
+//        this.personName = person.getPersonName();
+//        this.personInfo = person.getPersonInfo();
+//        this.personTelephone = person.getPersonTelephone();
+//    }
 }
+
+
+
+/*
+ *  GenerationType.IDENTITY
+ *
+ * Indicates that the persistence provider must assign
+ * primary keys for the entity using a database identity column.
+ */
