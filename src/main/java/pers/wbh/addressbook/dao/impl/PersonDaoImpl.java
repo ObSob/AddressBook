@@ -13,4 +13,8 @@ public class PersonDaoImpl extends BaseDaoImpl<PersonEntity> implements PersonDa
     public List<PersonEntity> findAllUser() {
         return (List<PersonEntity>) this.getCurrentSessionFactory().createQuery("from PersonEntity").list();
     }
+
+    public void savePerson(PersonEntity personEntity) {
+        this.getCurrentSessionFactory().save(personEntity);
+    }
 }

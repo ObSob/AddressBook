@@ -3,13 +3,14 @@ package pers.wbh.addressbook.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pers.wbh.addressbook.model.entity.KindEntity;
 import pers.wbh.addressbook.model.form.Person;
 import pers.wbh.addressbook.service.KindService;
+import pers.wbh.addressbook.service.PersonService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,6 +20,9 @@ import java.util.List;
 public class AddInfoController {
     @Autowired
     KindService kindService;
+
+    @Autowired
+    PersonService personService;
 
     @ModelAttribute("person")
     public Person createFormBean() {
@@ -34,11 +38,23 @@ public class AddInfoController {
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public String addUser(@Valid Person person, Errors errors)
+    public String addUser(@Valid Person person, BindingResult result)
     {
-        if(errors.hasErrors())
+        person.setKindService(this.kindService);
+
+        System.out.println(person.getPersonName());
+        System.out.println(person.getPersonBirthday());
+        System.out.println("Kind: " + person.getKind());
+
+        if(result.hasFieldErrors())
+        {
+            System.out.println(result.getFieldError().getDefaultMessage());
             return "addPage";
+        }
+
         System.out.println("input correct");
+
+        personService.savePerson(person.toPersonEntity());
         return "redirect:/";
     }
 }

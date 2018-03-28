@@ -15,7 +15,7 @@
         <!--扫描跳过@Controller 注解的java类-->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <context:component-scan base-package="pers.wbh.addressbook.model"/>
+    <!--<context:component-scan base-package="pers.wbh.addressbook.model"/>-->
 
     <tx:annotation-driven/>
 

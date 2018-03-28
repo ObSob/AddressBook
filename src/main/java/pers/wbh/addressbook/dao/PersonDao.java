@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface PersonDao extends BaseDao<PersonEntity>{
     List<PersonEntity> findAllUser();
+
+    void savePerson(PersonEntity personEntity);
 }

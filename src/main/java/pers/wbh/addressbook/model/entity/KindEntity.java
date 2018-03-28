@@ -30,7 +30,7 @@ public class KindEntity {
         this.kindName = kindName;
     }
 
-    @OneToMany(mappedBy = "kind", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "kind", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public Set<PersonEntity> getPersons() {
         return persons;
     }

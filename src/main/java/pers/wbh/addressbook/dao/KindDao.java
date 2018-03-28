@@ -8,4 +8,8 @@ import java.util.List;
 @Repository
 public interface KindDao extends BaseDao<KindEntity> {
     List<KindEntity> findAllKind();
+
+    KindEntity getKind(int id);
+
+    void saveKind(KindEntity kindEntity);
 }

@@ -18,4 +18,8 @@ public class PersonServiceImpl implements PersonService {
     public List<PersonEntity> getAllUser() {
         return personDao.findAllUser();
     }
+
+    public void savePerson(PersonEntity personEntity) {
+        personDao.save(personEntity);
+    }
 }

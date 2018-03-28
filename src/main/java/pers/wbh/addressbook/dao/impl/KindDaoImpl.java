@@ -13,4 +13,12 @@ public class KindDaoImpl extends BaseDaoImpl<KindEntity> implements KindDao {
     public List<KindEntity> findAllKind() {
         return (List<KindEntity>) this.getCurrentSessionFactory().createQuery("from KindEntity ").list();
     }
+
+    public KindEntity getKind(int id) {
+        return this.getCurrentSessionFactory().get(KindEntity.class, id);
+    }
+
+    public void saveKind(KindEntity kindEntity) {
+        this.getCurrentSessionFactory().save(kindEntity);
+    }
 }

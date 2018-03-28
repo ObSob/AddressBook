@@ -18,4 +18,12 @@ public class KindServiceImpl implements KindService {
     public List<KindEntity> getAllKind() {
         return kindDao.findAllKind();
     }
+
+    public KindEntity getKindById(int id) {
+        return kindDao.getKind(id);
+    }
+
+    public void saveKind(KindEntity kindEntity) {
+        kindDao.save(kindEntity);
+    }
 }

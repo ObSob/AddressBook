@@ -10,4 +10,8 @@ import java.util.List;
 @Transactional
 public interface KindService {
     List<KindEntity> getAllKind();
+
+    KindEntity getKindById(int id);
+
+    void saveKind(KindEntity kindEntity);
 }
